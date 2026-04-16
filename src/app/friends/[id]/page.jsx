@@ -5,9 +5,9 @@ import { FaBell,FaArchive  } from "react-icons/fa";
 import { FiTrash2 } from "react-icons/fi";
 import { RiEdit2Fill } from "react-icons/ri";
 import { cn } from '@/lib/utils';
-// Import the new Client Component
-// import QuickCheckIn from '@/components/friend/QuickCheckIn';
 import Image from 'next/image';
+import QuickCheckIn from '@/components/firend/QuickCheckIn';
+
 
 export default async function FriendDetailPage({ params }) {
   // Await params for Next.js 15+ compatibility
@@ -78,7 +78,7 @@ export default async function FriendDetailPage({ params }) {
           </div>
 
           {/* UPDATED: Integrated the Client Component for button functionality */}
-          {/* <QuickCheckIn friendName={friend.name} /> */}
+          <QuickCheckIn  friendName={friend.name} className="shadow-md" />
           
         </div>
       </div>
