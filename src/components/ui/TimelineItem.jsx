@@ -5,7 +5,7 @@ import { FaPhone } from "react-icons/fa6";
 import { LuMessageSquareText } from "react-icons/lu";
 import { FaVideo } from "react-icons/fa";
 import { IoMdClock } from "react-icons/io";
-import { cn } from '@/lib/utils';
+import { cn } from '@/Lib/utils';
 
 const THEMES = {
   call:  { icon: FaPhone,         css: "bg-emerald-50 text-emerald-600 border-emerald-100" },
