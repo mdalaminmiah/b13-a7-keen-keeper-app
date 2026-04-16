@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import friendsData from '@/data/friends.json';
 

@@ -4,8 +4,6 @@ import React from 'react';
 import InteractionPieChart from '@/components/charts/InteractionPieChart';
 import { useTimeline } from '@/Lib/TimelineProvider.mjs';
 
-// import InteractionPieChart from '@/components/stats/InteractionPieChart';
-// import { useTimeline } from '@/store/timelineStore';
 
 export default function StatsPage() {
   const { entries } = useTimeline();

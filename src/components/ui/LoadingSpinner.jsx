@@ -1,3 +1,4 @@
+"use client"
 import { BiLoaderCircle } from "react-icons/bi";
 import React from 'react';
 
