@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { FaBell,FaArchive  } from "react-icons/fa";
 import { FiTrash2 } from "react-icons/fi";
 import { RiEdit2Fill } from "react-icons/ri";
-import { cn } from '@/lib/utils';
+import { cn } from '@/Lib/utils';
 import Image from 'next/image';
 import QuickCheckIn from '@/components/firend/QuickCheckIn';
 
