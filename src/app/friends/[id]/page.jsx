@@ -10,23 +10,20 @@ import QuickCheckIn from '@/components/firend/QuickCheckIn';
 
 
 export default async function FriendDetailPage({ params }) {
-  // Await params for Next.js 15+ compatibility
   const resolvedParams = await params;
   const friend = friendsData.find(f => f.id === parseInt(resolvedParams.id));
 
   if (!friend) return notFound();
 
   const statusStyles = {
-    "overdue": "bg-red-400 text-white",
+    "overdue": "bg-red-500 text-white",
     "almost due": "bg-amber-400 text-white",
     "on-track": "bg-[#1C4D42] text-white"
   };
 
   return (
-    <main className="max-w-7xl mx-auto px-4 py-12 bg-slate-50/30 min-h-screen">
-        <div className="flex flex-col lg:flex-row gap-8">
-        
-        {/* LEFT COLUMN: Friend Info */}
+    <main className="min-h-screen bg-[#F8FAFB] py-16 px-4 md:px-8">
+        <div className="max-w-5xl mx-auto flex flex-col lg:flex-row gap-10">
         <div className="w-full lg:w-1/3 space-y-4">
           <div className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm flex flex-col items-center text-center">
             <div className="relative w-24 h-24 mb-4 rounded-full overflow-hidden ring-4 ring-slate-50">
@@ -58,8 +55,6 @@ export default async function FriendDetailPage({ params }) {
             <ActionButton icon={FiTrash2} label="Delete" variant="danger" />
           </div>
         </div>
-
-        {/* RIGHT COLUMN: Stats & Actions */}
         <div className="w-full lg:w-2/3 space-y-6">
           <div className="grid grid-cols-3 gap-4">
             <StatCard value={friend.days_since_contact} label="Days Since Contact" />
@@ -76,8 +71,6 @@ export default async function FriendDetailPage({ params }) {
               <RiEdit2Fill className="w-3 h-3" /> Edit
             </button>
           </div>
-
-          {/* UPDATED: Integrated the Client Component for button functionality */}
           <QuickCheckIn  friendName={friend.name} className="shadow-md" />
           
         </div>
@@ -86,7 +79,6 @@ export default async function FriendDetailPage({ params }) {
   );
 }
 
-// Helper Components
 const ActionButton = ({ icon: Icon, label, variant }) => (
   <button className={cn(
     "flex items-center justify-center gap-2 w-full py-3 bg-white border border-slate-200 rounded-lg text-sm font-medium transition-colors",

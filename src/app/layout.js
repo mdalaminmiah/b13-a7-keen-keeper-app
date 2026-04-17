@@ -3,7 +3,6 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { ToastContainer } from "react-toastify";
-// 1. Import your Provider (adjust the path if necessary)
 import { TimelineProvider } from "@/Lib/TimelineProvider.mjs"; 
 
 const geistSans = Geist({
@@ -17,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "B13 Keen Keeper",
+  title: "Keen Keeper",
   description: "High-performance relationship management",
 };
 
@@ -26,10 +25,8 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-      // This handles mismatches on the HTML tag
       suppressHydrationWarning={true}
     >
-      {/* ADD IT HERE TOO: This stops Grammarly/Extensions from breaking the body tag */}
       <body 
         className="min-h-full flex flex-col" 
         suppressHydrationWarning={true}

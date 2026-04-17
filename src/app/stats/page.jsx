@@ -10,7 +10,6 @@ export default function StatsPage() {
 
   return (
     <main className="min-h-screen bg-[#FBFBFA] pb-20">
-      {/* Header - Centered as per Figma */}
       <section className="max-w-7xl mx-auto px-4 pt-16 mb-12 text-center">
         <h1 className="text-4xl md:text-5xl font-black text-slate-800 tracking-tight">
           Friendship Analytics
@@ -18,7 +17,6 @@ export default function StatsPage() {
       </section>
 
       <section className="max-w-4xl mx-auto px-4">
-        {/* Main Chart Card */}
         <div className="bg-white rounded-3xl border border-slate-100 shadow-sm p-8 md:p-12">
           <h3 className="text-sm font-bold text-slate-400  tracking-widest mb-10">
             By Interaction Type

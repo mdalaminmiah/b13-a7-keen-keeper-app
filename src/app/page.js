@@ -1,3 +1,4 @@
+
 "use client";
 import Banner from "@/components/Home/Banner";
 import FriendCard from "@/components/Home/FriendCard";
@@ -9,6 +10,7 @@ import { useEffect, useState } from "react";
 export default function Home() {
     const [friends, setFriends] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+
     useEffect(() => {
         const loadFriends = async () => {
             try {
@@ -22,32 +24,37 @@ export default function Home() {
         };
         loadFriends();
     }, []);
-  if (isLoading) {
-    return <LoadingSpinner />;
-  }
 
+    if (isLoading) {
+        return <LoadingSpinner />;
+    }
 
-  return (
-    <main className="min-h-screen bg-slate-50/30 pb-20 animate-in fade-in duration-700">
-      <Banner />
-      <SummaryCards friends={friends} />
-       <section className="max-w-7xl mx-auto px-4 mt-20">
-        <h2 className="text-xl font-bold text-slate-800 mb-8">Your Friends</h2>
-        
-        {/* Requirement: 4-column grid layout on large screens */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {friends.map((friend) => (
-            <FriendCard key={friend.id} friend={friend} />
-          ))}
-        </div>
+    return (
+        <main className="min-h-screen bg-white pb-20 animate-in fade-in duration-700">
+            <Banner />
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="-mt-8 relative z-10"> 
+                    <SummaryCards friends={friends} />
+                </div>
 
-        {/* Empty State (Good UX practice) */}
-        {friends.length === 0 && (
-          <div className="text-center py-20">
-            <p className="text-slate-400">No friends found. Time to make some connections!</p>
-          </div>
-        )}
-      </section>
-    </main>
-  );
+                <section className="mt-16">
+                    <h2 className="text-2xl font-bold text-slate-900 mb-8 tracking-tight">
+                        Your Friends
+                    </h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                        {friends.map((friend) => (
+                            <FriendCard key={friend.id} friend={friend} />
+                        ))}
+                    </div>
+                    {friends.length === 0 && (
+                        <div className="text-center py-20 bg-slate-50 rounded-2xl border border-dashed border-slate-200">
+                            <p className="text-slate-400 font-medium">
+                                No friends found. Time to make some connections!
+                            </p>
+                        </div>
+                    )}
+                </section>
+            </div>
+        </main>
+    );
 }

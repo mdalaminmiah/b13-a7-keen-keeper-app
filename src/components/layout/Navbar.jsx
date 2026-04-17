@@ -5,6 +5,7 @@ import { cn } from "@/Lib/utils";
 import { FaHome } from "react-icons/fa";
 import { FaClockRotateLeft } from "react-icons/fa6";
 import { FaChartLine } from "react-icons/fa6";
+import Image from "next/image";
 
 const NAV_ITEMS = [
   { id: "home", label: "Home", icon: FaHome, path: "/" },
@@ -19,8 +20,8 @@ const Navbar = () => {
     <div className="navbar bg-base-100 shadow-sm sticky top-0 z-50 px-4">
 
       <div className="flex-1">
-        <Link href="/" className="text-xl font-bold text-primary">
-          Keen<span className="font-normal">Keeper</span>
+        <Link href="/" className="text-xl font-bold text-[#000000]">
+          Keen<span className="font-normal text-[#1C4D42]">Keeper</span>
         </Link>
       </div>
 
@@ -37,7 +38,7 @@ const Navbar = () => {
                   className={cn(
                     "flex items-center gap-2 rounded-btn transition-all px-3 py-2",
                     isActive
-                      ? "bg-primary text-primary-content"
+                      ? "bg-[#1C4D42] text-white rounded-md font-semibold"
                       : "hover:bg-base-200"
                   )}
                 >

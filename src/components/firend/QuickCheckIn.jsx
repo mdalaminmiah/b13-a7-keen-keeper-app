@@ -26,7 +26,6 @@ export default function QuickCheckIn({ friendName = "Friend", className }) {
    * This is safe from hydration errors because it only runs on the client after a user action.
    */
   const handleLogInteraction = useCallback(async (label, id) => {
-    // 1. Logic Guard: Ensure we don't try to log before the store is ready
     if (!isHydrated) return;
 
     const title = `${label} with ${friendName}`;
@@ -51,8 +50,6 @@ export default function QuickCheckIn({ friendName = "Friend", className }) {
     }
   }, [friendName, addEntry, isHydrated]);
 
-  // 2. Component Hydration Guard
-  // If the provider isn't ready, we don't render the buttons to prevent mismatches
   if (!isHydrated) return null;
 
   return (

@@ -6,14 +6,13 @@ import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recha
 export default function InteractionPieChart() {
   const { entries } = useTimeline();
 
-  // Data processing
   const data = [
     { name: 'Text', value: entries.filter(e => e.type === 'text').length },
     { name: 'Call', value: entries.filter(e => e.type === 'call').length },
     { name: 'Video', value: entries.filter(e => e.type === 'video').length },
+    { name: 'Email', value: entries.filter(e => e.type === 'email').length },
   ].filter(d => d.value > 0);
 
-  // Figma colors: Dark Green, Indigo/Purple, Bright Green
   const COLORS = ['#6366f1', '#1C4D42', '#34d399'];
 
   return (
@@ -24,7 +23,7 @@ export default function InteractionPieChart() {
             data={data}
             cx="50%"
             cy="50%"
-            innerRadius={80} // Creates the "Donut" hole
+            innerRadius={80} 
             outerRadius={120}
             paddingAngle={8}
             dataKey="value"

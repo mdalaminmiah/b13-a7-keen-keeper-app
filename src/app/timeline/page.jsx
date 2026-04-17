@@ -9,8 +9,6 @@ import TimelineItem from '@/components/ui/TimelineItem';
 export default function TimelinePage() {
   const { entries } = useTimeline();
   const [filter, setFilter] = useState('all');
-
-  // ES6 Filter logic: Derived state is always better than extra useEffects
   const displayList = useMemo(() => (
     filter === 'all' ? entries : entries.filter(e => e.type === filter)
   ), [entries, filter]);
@@ -34,6 +32,7 @@ export default function TimelinePage() {
             <option value="call">Calls</option>
             <option value="text">Texts</option>
             <option value="video">Videos</option>
+             <option value="email">Emails</option>
           </select>
         </div>
       </header>

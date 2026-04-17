@@ -48,8 +48,9 @@ const Footer = () => {
         <p className="text-emerald-100/60 max-w-xl mx-auto text-sm mb-8">
           Your personal shelf of meaningful connections. Browse, tend, and nurture the relationships that matter most.
         </p>
-        
+           <h1 className="text-xl font-bold mb-4">Social Links</h1>
         <div className="flex justify-center gap-6 mb-12">
+         
             {SOCIAL_LINKS.map(({ id, Icon, url,className  }) => (
             <SocialButton
               key={id}

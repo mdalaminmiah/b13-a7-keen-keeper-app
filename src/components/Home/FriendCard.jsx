@@ -16,16 +16,9 @@ const FriendCard = ({ friend }) => {
 
   return (
     <Link href={`/friends/${friend.id}`}  className="group block w-full perspective-[1000px]">
-      {/* Container with 3D Rotation using arbitrary values */}
       <div className="relative h-full w-full rounded-[2.5rem] transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] transform-3d group-hover:transform-[rotateX(10deg)_rotateY(-10deg)]">
-        
-        {/* Floating Shadow */}
         <div className="absolute inset-6 rounded-[2.5rem] bg-black/10 blur-2xl transition-all duration-500 group-hover:translate-y-10 group-hover:opacity-40" />
-
-        {/* Card Body */}
         <div className="relative overflow-hidden rounded-[2.5rem] border border-slate-100 bg-white p-8 text-center shadow-sm transform-[translateZ(0px)] group-hover:transform-[translateZ(20px)] transition-transform duration-500">
-          
-          {/* 3D Pop-out Avatar */}
           <div className="relative mx-auto mb-6 h-32 w-32 transform-[translateZ(30px)]">
             <div className="absolute inset-0 rounded-full bg-linear-to-tr from-emerald-400 to-cyan-400 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-60" />
             <div className="relative h-full w-full overflow-hidden rounded-full border-4 border-white shadow-2xl transition-transform duration-500 group-hover:scale-110">
@@ -38,10 +31,9 @@ const FriendCard = ({ friend }) => {
             </div>
           </div>
 
-          {/* Text Content */}
           <div className="space-y-4 transform-[translateZ(40px)]">
             <div>
-              <h3 className="text-2xl font-black tracking-tight text-slate-800 transition-colors group-hover:text-emerald-600">
+              <h3 className="text-[1rem] font-black tracking-tight text-slate-800 transition-colors group-hover:text-emerald-600">
                 {friend.name}
               </h3>
               <div className="mt-1 flex items-center justify-center gap-1.5 text-xs font-bold text-slate-400 uppercase tracking-widest">
@@ -50,7 +42,6 @@ const FriendCard = ({ friend }) => {
               </div>
             </div>
 
-            {/* Tags */}
             <div className="flex flex-wrap items-center justify-center gap-2">
               {friend.tags.map((tag) => (
                 <span 
@@ -62,7 +53,6 @@ const FriendCard = ({ friend }) => {
               ))}
             </div>
 
-            {/* Floating Status Badge */}
             <div className="pt-2 transform-[translateZ(50px)]">
               <span className={cn(
                 "inline-block rounded-full px-8 py-2.5 text-[11px] font-black uppercase tracking-widest text-white shadow-2xl transition-all duration-500 group-hover:scale-110",
@@ -74,7 +64,6 @@ const FriendCard = ({ friend }) => {
             </div>
           </div>
 
-          {/* Light Flare Sweep */}
           <div className="absolute -left-full top-0 h-full w-1/2 skew-x-[-25deg] bg-linear-to-r from-transparent via-white/30 to-transparent transition-all duration-1000 group-hover:left-[150%]" />
         </div>
       </div>

@@ -9,8 +9,6 @@ export const TimelineProvider = ({ children }) => {
   const [entries, setEntries] = useState([]);
   const [isHydrated, setIsHydrated] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
-
-  // 1. Load data from localStorage only after mounting on the client
   useEffect(() => {
     const initStorage = () => {
       try {
@@ -21,15 +19,12 @@ export const TimelineProvider = ({ children }) => {
       } catch (err) {
         console.error("Storage Hydration Failed:", err);
       } finally {
-        // Essential: Signal that hydration is complete
         setIsHydrated(true);
       }
     };
 
     initStorage();
   }, []);
-
-  // 2. Persist to localStorage whenever entries change
   useEffect(() => {
     if (isHydrated) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
@@ -67,7 +62,7 @@ export const TimelineProvider = ({ children }) => {
    * until the client-side useEffect has finished (isHydrated = true).
    */
   if (!isHydrated) {
-    return null; // Or <div className="hidden">{children}</div>
+    return null;
   }
 
   return (
